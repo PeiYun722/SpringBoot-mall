@@ -1,9 +1,7 @@
 package com.peggy.springbootmall.model;
 
-import jakarta.persistence.Column;
-import jakarta.persistence.Entity;
-import jakarta.persistence.Id;
-import jakarta.persistence.Table;
+import com.peggy.springbootmall.constant.ProductCategory;
+import jakarta.persistence.*;
 
 import java.util.Date;
 
@@ -13,11 +11,13 @@ public class Product {
 
     @Id
     @Column
+    @GeneratedValue(strategy = GenerationType.IDENTITY)
     private Integer productId;
     @Column
     private String productName;
     @Column
-    private String category;
+    @Enumerated(EnumType.STRING)
+    private ProductCategory category;
     @Column
     private String imageUrl;
     @Column
@@ -47,11 +47,11 @@ public class Product {
         this.productName = productName;
     }
 
-    public String getCategory() {
+    public ProductCategory getCategory() {
         return category;
     }
 
-    public void setCategory(String category) {
+    public void setCategory(ProductCategory category) {
         this.category = category;
     }
 
