@@ -78,7 +78,7 @@ public class ProductServiceImpl implements ProductService {
     public Integer creatProduct(ProductRequest productRequest) {
         Product product = requestToObj(null,productRequest);
         productDao.save(product);
-        return  productDao.save(product).getProductId();
+        return  product.getProductId();
 
     }
 
