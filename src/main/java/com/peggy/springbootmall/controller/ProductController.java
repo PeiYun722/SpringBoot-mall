@@ -5,6 +5,7 @@ import com.peggy.springbootmall.dto.ProductQueryParams;
 import com.peggy.springbootmall.dto.ProductRequest;
 import com.peggy.springbootmall.model.Product;
 import com.peggy.springbootmall.service.ProductService;
+import com.peggy.springbootmall.util.Page;
 import jakarta.validation.Valid;
 import jakarta.validation.constraints.Max;
 import jakarta.validation.constraints.Min;
@@ -23,14 +24,14 @@ public class ProductController {
 
     //查詢商品列表
     @GetMapping("/products")
-    public ResponseEntity<List<Product>> getProducts(
+    public ResponseEntity<Page<Product>> getProducts(
             @RequestParam(required = false) ProductCategory productCategory,
             @RequestParam(required = false) String productName,
             // 排序
             @RequestParam(required = false) String orderBy,
             @RequestParam(required = false, defaultValue = "asc") String sort,
             //分頁
-            @RequestParam(required = false, defaultValue = "5") @Max(100) @Min(0) Integer limit,
+            @RequestParam(required = false ) @Max(100) @Min(0) Integer limit,
             @RequestParam(required = false, defaultValue = "0") @Min(0) Integer offset) {
         ProductQueryParams productQueryParams = new ProductQueryParams();
         productQueryParams.setProductCategory(productCategory);
@@ -39,10 +40,14 @@ public class ProductController {
         productQueryParams.setSort(sort);
         productQueryParams.setLimit(limit);
         productQueryParams.setOffset(offset);
-
+        //response
         List<Product> products = productService.getProducts(productQueryParams);
-
-        return ResponseEntity.status(HttpStatus.OK).body(products);
+        Page<Product> page = new Page<>();
+        page.setLimit(limit);
+        page.setOffset(offset);
+        page.setTotal(products.size());
+        page.setResults(products);
+        return ResponseEntity.status(HttpStatus.OK).body(page);
     }
 
     // 根據ID取得商品
