@@ -3,26 +3,27 @@ package com.peggy.springbootmall.dto;
 import jakarta.validation.constraints.Email;
 import jakarta.validation.constraints.NotBlank;
 
-public class UserLoginRequest {
+public class CustomerRegisterRequest {
+
     @NotBlank
     @Email
     private String email;
     @NotBlank
     private String password;
 
-    public @NotBlank @Email String getEmail() {
+    public String getEmail() {
         return email;
     }
 
-    public void setEmail(@NotBlank @Email String email) {
+    public void setEmail(String email) {
         this.email = email;
     }
 
-    public @NotBlank String getPassword() {
+    public String getPassword() {
         return password;
     }
 
-    public void setPassword(@NotBlank String password) {
+    public void setPassword(String password) {
         this.password = password;
     }
 }

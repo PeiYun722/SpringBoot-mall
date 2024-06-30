@@ -8,12 +8,12 @@ import java.util.Date;
 
 @Table
 @Entity
-public class User {
+public class Customer {
 
     @Id
     @Column
     @GeneratedValue(strategy = GenerationType.IDENTITY)
-    private Integer userId;
+    private Integer customerId;
     @Column
     private String email;
     @Column
@@ -24,12 +24,12 @@ public class User {
     @Column
     private Date lastModifiedDate;
 
-    public Integer getUserId() {
-        return userId;
+    public Integer getCustomerId() {
+        return customerId;
     }
 
-    public void setUserId(Integer userId) {
-        this.userId = userId;
+    public void setCustomerId(Integer customerId) {
+        this.customerId = customerId;
     }
 
     public String getEmail() {

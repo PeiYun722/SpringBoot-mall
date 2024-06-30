@@ -9,3 +9,12 @@ CREATE TABLE  if not exists product (
                            `created_date` timestamp NOT NULL,
                            `last_modified_date` timestamp NOT NULL
 );
+
+CREATE TABLE `customer`
+(
+    `customer_id`        INT          NOT NULL PRIMARY KEY AUTO_INCREMENT,
+    `email`              VARCHAR(256) NOT NULL UNIQUE,
+    `password`           VARCHAR(256) NOT NULL,
+    `created_date`       TIMESTAMP    NOT NULL,
+    `last_modified_date` TIMESTAMP    NOT NULL
+);
