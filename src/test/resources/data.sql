@@ -19,3 +19,4 @@ INSERT INTO product (product_name,category,image_url,price,stock,description,cre
 INSERT INTO product (product_name,category,image_url,price,stock,description,created_date,last_modified_date) VALUES ('燕麥曲奇','COOKIE','https://i.imgur.com/jXG0E5W.jpg',100,10,'有點健康的餅乾','2024-06-20 11:29:29','2024-06-20 11:29:29');
 INSERT INTO product (product_name,category,image_url,price,stock,description,created_date,last_modified_date) VALUES ('愛心巧克力曲奇','COOKIE','https://i.imgur.com/MZiL2rn.jpg',150,10,'買來送給另一半剛剛好','2024-06-20 11:29:29','2024-06-20 11:29:29');
 INSERT INTO product (product_name,category,image_url,price,stock,description,created_date,last_modified_date) VALUES ('翻糖餅乾','COOKIE','https://i.imgur.com/2Qorp9M.jpg',120,10,'很多樣式任君選擇','2024-06-20 11:29:29','2024-06-20 11:29:29');
+INSERT INTO customer ( email, password, created_date, last_modified_date)values ('w123@gmail.com','f8862b27f1c17f14c690205d04507a30','2024-07-03 14:00:00','2024-07-03 14:00:00');
